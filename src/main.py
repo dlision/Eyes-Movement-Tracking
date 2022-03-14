@@ -78,9 +78,9 @@ def infer_on_stream(args):
     # Initialise the classes
     try:
         face_detection = FaceDetection(args.fd_model, args.device)
-        # landmark_detection = FacialLandMark(args.fl_model, args.device)
-        # headpose_estimation = HeadPoseEstimation(args.hp_model, args.device)
-        # gaze_estimation = GazeEstimation(args.ge_model, args.device)
+        landmark_detection = FacialLandMark(args.fl_model, args.device)
+        headpose_estimation = HeadPoseEstimation(args.hp_model, args.device)
+        gaze_estimation = GazeEstimation(args.ge_model, args.device)
     except:
         log.error('Please enter a valid model file address')    
         sys.exit()
@@ -90,9 +90,9 @@ def infer_on_stream(args):
     
     # Load the models 
     face_detection.load_model()
-    # landmark_detection.load_model()
-    # headpose_estimation.load_model()
-    # gaze_estimation.load_model()
+    landmark_detection.load_model()
+    headpose_estimation.load_model()
+    gaze_estimation.load_model()
     log.debug("Models loaded: time: {:.3f} ms".format((time.time() - start_load) * 1000))
     end_load = time.time() -  start_load 
     
@@ -121,9 +121,9 @@ def infer_on_stream(args):
                 continue
             if key_pressed == 27:
                 break
-            # left_eye, right_eye, eyes_center = landmark_detection.predict(frame, face, face_cords, args.display)
-            # headpose_angles = headpose_estimation.predict(frame, face, face_cords, args.display)
-            # gaze_vector = gaze_estimation.predict(frame, left_eye, right_eye, headpose_angles, eyes_center, args.display)
+            left_eye, right_eye, eyes_center = landmark_detection.predict(frame, face, face_cords, args.display)
+            headpose_angles = headpose_estimation.predict(frame, face, face_cords, args.display)
+            gaze_vector = gaze_estimation.predict(frame, left_eye, right_eye, headpose_angles, eyes_center, args.display)
             if args.display:
                 cv2.imshow('Eyes Movement tracking', cv2.resize(frame,(1000,800)))
                 cv2.moveWindow('Eyes Movement tracking',  10,10)
