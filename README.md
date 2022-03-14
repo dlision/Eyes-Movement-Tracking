@@ -14,6 +14,17 @@ We are using four pre-trained models from the Intel Pre-trained Models Zoo:
 ## Eyes movement tracking output
 ![output_gif](https://github.com/dlision/Eyes-Movement-Tracking/blob/main/eyes-movement-tracking.gif)
 
+## Benchmarks on CPU
+Include the benchmark results of running multiple model precisions. 
+ The Performance tests were run on **Intel® Core™ i3-8350K CPU @ 4.00GHz × 4** and **16 GB Ram**
+
+
+| Properties  | FP32        | FP16        | INT8        |
+| ------------| ----------- | ----------- | ----------- |
+|Model Loading| 0.19139     | 0.183228    | 0.35699     |
+|Infer Time   | 75.9599     | 75.77568    | 68.5793     |
+|FPS          | 0.77672     | 0.77861fps  | 0.8603fps   |
+
 
 ## Project Set Up and Installation
 Make sure you have the OpenVINO toolkit installed on your system. This project is based on [Intel OpenVINO 2021.3.394](https://docs.openvinotoolkit.org/latest/index.html) toolkit, so if you don't have it, make sure to install it first before continue with the next steps. Read the dependencies listed on the openVINO website to install it.
@@ -102,18 +113,6 @@ Argument|Type|Description
 -disp| Optional | Flag to display the outputs of the intermediate models.
 -pt | Optional | Specify confidence threshold which the value here in range(0, 1), default=0.6
 -d | Optional | Provide the target device: CPU / GPU / VPU (MYRIAD) / FPGA
-
-
-## Benchmarks on CPU
-Include the benchmark results of running multiple model precisions. 
- The Performance tests were run on **Intel® Core™ i3-8350K CPU @ 4.00GHz × 4** and **16 GB Ram**
-
-
-| Properties  | FP32        | FP16        | INT8        |
-| ------------| ----------- | ----------- | ----------- |
-|Model Loading| 0.19139     | 0.183228    | 0.35699     |
-|Infer Time   | 75.9599     | 75.77568    | 68.5793     |
-|FPS          | 0.77672     | 0.77861fps  | 0.8603fps   |
 
 
 ## Results
