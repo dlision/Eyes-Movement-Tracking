@@ -1,6 +1,6 @@
 # Eyes Movement Tracking
 
-In this project, you will use several deep learning models from the OpenVINO model zoo for the eyes movement tracking. You will be using the Gaze Estimation model to estimate the gaze of the user's eyes.</br>
+In this project, you will use several deep learning models from the Intel OpenVINO model zoo for the eyes movement tracking. You will be using the Gaze Estimation model to estimate the gaze of the user's eyes.</br>
 Firstly, we will detect the face from the input video by using a face detection model. This detected face then passes it to two models for eyes detection and second for head pose estimation. At the end head pose angle and detected eyes image of left and right eye pass to the gaze estimation model to get the gaze vector. 
 
 We are using four pre-trained models from the Intel Pre-trained Models Zoo:
